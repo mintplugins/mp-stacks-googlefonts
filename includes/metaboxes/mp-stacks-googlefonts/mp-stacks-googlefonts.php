@@ -40,7 +40,7 @@ function mp_stacks_text1_google_font_metabox_items($items_array) {
 				'field_type' 	=> 'textbox',
 				'field_value' => '',
 				'field_placeholder' => __( 'Google Font Name', 'mp_stacks_googlefonts' ),
-				'field_class' => 'mp_brick_text_option'
+				'field_container_class' => 'mp_brick_text_option'
 			)
 		);
 		
@@ -96,7 +96,7 @@ function mp_stacks_text2_google_font_metabox_items($items_array) {
 				'field_type' 	=> 'textbox',
 				'field_value' => '',
 				'field_placeholder' => __( 'Google Font Name', 'mp_stacks_googlefonts' ),
-				'field_class' => 'mp_brick_text_option'
+				'field_container_class' => 'mp_brick_text_option'
 			)
 		);
 		

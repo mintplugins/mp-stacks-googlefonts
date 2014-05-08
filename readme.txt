@@ -34,5 +34,8 @@ See full instructions at http://moveplugins.com/doc/mp-stacks
 == Changelog ==
 
 
+= 1.0.0.1 = May 8, 2014
+* 
+
 = 1.0.0.0 = April 13, 2014
 * Original release

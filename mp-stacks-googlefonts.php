@@ -3,7 +3,7 @@
 Plugin Name: MP Stacks + GoogleFonts
 Plugin URI: http://moveplugins.com
 Description: Use any of over 500 Google Fonts for the "Text" Content-Type
-Version: 1.0.0.0
+Version: 1.0.0.1
 Author: Move Plugins
 Author URI: http://moveplugins.com
 Text Domain: mp_stacks_googlefonts
