@@ -35,7 +35,7 @@ See full instructions at http://moveplugins.com/doc/mp-stacks
 
 
 = 1.0.0.1 = May 8, 2014
-* 
+* Use the font name as the font family so the font only has to load 1 time for the entire page. Works with the updated font class in MP Core.
 
 = 1.0.0.0 = April 13, 2014
 * Original release
