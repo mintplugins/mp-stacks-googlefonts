@@ -1,21 +1,21 @@
 <?php
 /*
 Plugin Name: MP Stacks + GoogleFonts
-Plugin URI: http://moveplugins.com
+Plugin URI: http://mintplugins.com
 Description: Use any of over 500 Google Fonts for the "Text" Content-Type
-Version: 1.0.0.1
-Author: Move Plugins
-Author URI: http://moveplugins.com
+Version: 1.0.0.2
+Author: Mint Plugins
+Author URI: http://mintplugins.com
 Text Domain: mp_stacks_googlefonts
 Domain Path: languages
 License: GPL2
 */
 
-/*  Copyright 2014  Phil Johnston  (email : phil@moveplugins.com)
+/*  Copyright 2014  Phil Johnston  (email : phil@mintplugins.com)
 
     This program is free software; you can redistribute it and/or modify
     it under the terms of the GNU General Public License, version 2, as 
-    published by the Free Software Move Plugins Core.
+    published by the Free Software Mint Plugins Core.
 
     This program is distributed in the hope that it will be useful,
     but WITHOUT ANY WARRANTY; without even the implied warranty of
@@ -24,7 +24,7 @@ License: GPL2
 
     You should have received a copy of the GNU General Public License
     along with this program; if not, write to the Free Software
-    Move Plugins Core, Inc., 51 Franklin St, Fifth Floor, Boston, MA  02110-1301  USA
+    Mint Plugins Core, Inc., 51 Franklin St, Fifth Floor, Boston, MA  02110-1301  USA
 */
 
 /*
@@ -34,7 +34,7 @@ License: GPL2
 */
 // Plugin version
 if( !defined( 'MP_STACKS_GOOGLEFONTS_VERSION' ) )
-	define( 'MP_STACKS_GOOGLEFONTS_VERSION', '1.0.0.0' );
+	define( 'MP_STACKS_GOOGLEFONTS_VERSION', '1.0.0.2' );
 
 // Plugin Folder URL
 if( !defined( 'MP_STACKS_GOOGLEFONTS_PLUGIN_URL' ) )
@@ -125,7 +125,7 @@ function mp_stacks_googlefonts_include_files(){
 	elseif(!function_exists('mp_stacks_textdomain')){
 		
 		/**
-		 * Check if wp_html_in_post in installed
+		 * Check if mp_stacks in installed
 		 */
 		include_once( MP_STACKS_GOOGLEFONTS_PLUGIN_DIR . 'includes/plugin-checker/included-plugins/mp-stacks.php' );
 	}
@@ -140,9 +140,16 @@ function mp_stacks_googlefonts_include_files(){
 		require( MP_STACKS_GOOGLEFONTS_PLUGIN_DIR . 'includes/updater/mp-stacks-googlefonts-update.php' );
 		
 		/**
-		 * Modify Metabox for Main Image
+		 * Modify Text Metaboxes for Google Fonts
 		 */
 		require( MP_STACKS_GOOGLEFONTS_PLUGIN_DIR . 'includes/metaboxes/mp-stacks-googlefonts/mp-stacks-googlefonts.php' );
+		
+		/**
+		 * Functions which assist with the creation of templates using this add-on
+		 */
+		if ( function_exists('mp_stacks_developer_textdomain') ){
+			require( MP_STACKS_GOOGLEFONTS_PLUGIN_DIR . 'includes/misc-functions/stack-template-functions.php' );
+		}
 		
 		/**
 		 * Filters which modify the image on output

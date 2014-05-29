@@ -1,10 +1,10 @@
 === MP Stacks + GoogleFonts ===
 Contributors: johnstonphilip
-Donate link: http://moveplugins.com/
+Donate link: http://mintplugins.com/
 Tags: message bar, header
 Requires at least: 3.6
 Tested up to: 3.8.1
-Stable tag: 1.0.0.0
+Stable tag: 1.0.0.2
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -26,13 +26,15 @@ This section describes how to install the plugin and get it working.
 
 == Frequently Asked Questions ==
 
-See full instructions at http://moveplugins.com/doc/mp-stacks
+See full instructions at http://mintplugins.com/doc/mp-stacks
 
 == Screenshots ==
 
 
 == Changelog ==
 
+= 1.0.0.2 = May 29, 2014
+* Move To Mint
 
 = 1.0.0.1 = May 8, 2014
 * Use the font name as the font family so the font only has to load 1 time for the entire page. Works with the updated font class in MP Core.
