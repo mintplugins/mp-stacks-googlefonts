@@ -3,7 +3,7 @@
 Plugin Name: MP Stacks + GoogleFonts
 Plugin URI: http://mintplugins.com
 Description: Use any of over 500 Google Fonts for the "Text" Content-Type
-Version: 1.0.0.2
+Version: 1.0.0.3
 Author: Mint Plugins
 Author URI: http://mintplugins.com
 Text Domain: mp_stacks_googlefonts
@@ -138,6 +138,11 @@ function mp_stacks_googlefonts_include_files(){
 		 * Update script - keeps this plugin up to date
 		 */
 		require( MP_STACKS_GOOGLEFONTS_PLUGIN_DIR . 'includes/updater/mp-stacks-googlefonts-update.php' );
+		
+		/**
+		 * Enqueue Scripts
+		 */
+		require( MP_STACKS_GOOGLEFONTS_PLUGIN_DIR . 'includes/misc-functions/enqueue-scripts.php' );
 		
 		/**
 		 * Modify Text Metaboxes for Google Fonts

@@ -10,6 +10,10 @@ function mp_stacks_googlefonts_add_all_mp_stacks_meta( $all_mp_stacks_meta ){
 	global $global_google_font_option_for_second_line_2;
 	global $mp_stacks_googlefonts_items_array;
 	
+	if ( !is_array( $mp_stacks_googlefonts_items_array ) ){
+		$mp_stacks_googlefonts_items_array = array();	
+	}
+	
 	//Merge our global meta options
 	$google_font_options = array_merge( $global_google_font_option_for_line_1, $global_google_font_option_for_line_2, $global_google_font_option_for_second_line_1, $global_google_font_option_for_second_line_2, $mp_stacks_googlefonts_items_array );
 	

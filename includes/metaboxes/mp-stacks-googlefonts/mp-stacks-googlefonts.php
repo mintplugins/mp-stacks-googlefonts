@@ -23,7 +23,7 @@ function mp_stacks_overall_google_fonts_metabox(){
 	$mp_stacks_googlefonts_items_array = array(
 		array(
 			'field_id'			=> 'brick_overall_google_font',
-			'field_title' 	=> __( 'Google Font Name<br />', 'mp_stacks'),
+			'field_title' 	=> __( 'Google Font Name', 'mp_stacks'),
 			'field_description' 	=> 'Enter the name of the Google Font to use for this Text <br /><a class="button" href="https://www.google.com/fonts" target="_blank">Browse Google Fonts<div  style="margin-top: 3.3px; margin-left: 5px;" class="dashicons dashicons-share-alt2"></div></a>',
 			'field_type' 	=> 'textbox',
 			'field_value' => '',
@@ -35,7 +35,7 @@ function mp_stacks_overall_google_fonts_metabox(){
 	/**
 	 * Custom filter to allow for add-on plugins to hook in their own data for add_meta_box array
 	 */
-	$mp_stacks_googlefonts_add_meta_box = has_filter('mp_stacks_meta_box_array') ? apply_filters( 'mp_stacks_meta_box_array', $mp_stacks_googlefonts_add_meta_box) : $mp_stacks_googlefonts_add_meta_box;
+	$mp_stacks_googlefonts_add_meta_box = has_filter('mp_stacks_googlefonts_meta_box_array') ? apply_filters( 'mp_stacks_googlefonts_meta_box_array', $mp_stacks_googlefonts_add_meta_box) : $mp_stacks_googlefonts_add_meta_box;
 	
 	//Globalize the and populate mp_stacks_googlefonts_items_array (do this before filter hooks are run)
 	global $global_mp_stacks_googlefonts_items_array;
@@ -53,7 +53,7 @@ function mp_stacks_overall_google_fonts_metabox(){
 	global $mp_stacks_meta_box;
 	$mp_stacks_meta_box = new MP_CORE_Metabox($mp_stacks_googlefonts_add_meta_box, $mp_stacks_googlefonts_items_array);
 }
-add_action('plugins_loaded', 'mp_stacks_overall_google_fonts_metabox');
+add_action('mp_brick_metabox', 'mp_stacks_overall_google_fonts_metabox');
 
 /**
  * Add to the Array which stores all info about the new metabox
@@ -67,7 +67,7 @@ function mp_stacks_text1_google_font_metabox_items($items_array) {
 	foreach ( $items_array as $item ){
 		
 		//If the current loop is for the brick_bg_image
-		if ($item['field_id'] == 'brick_line_1_font_size'){
+		if ($item['field_id'] == 'brick_line_1_line_height'){
 			
 			//Split the array after the array with the field containing 'brick_bg_image'
 			$options_prior = array_slice($items_array, 0, $counter+1, true);
@@ -89,12 +89,13 @@ function mp_stacks_text1_google_font_metabox_items($items_array) {
 		
 		$google_font_option_for_line_1 = array(
 			'field_id'			=> 'brick_line_1_google_font',
-			'field_title' 	=> __( 'Google Font Name<br />', 'mp_stacks'),
+			'field_title' 	=> __( 'Google Font Name', 'mp_stacks'),
 			'field_description' 	=> 'Enter the name of the Google Font to use for this Text <br /><a class="button" href="https://www.google.com/fonts" target="_blank">Browse Google Fonts<div  style="margin-top: 3.3px; margin-left: 5px;" class="dashicons dashicons-share-alt2"></div></a>',
 			'field_type' 	=> 'textbox',
 			'field_value' => '',
 			'field_placeholder' => __( 'Google Font Name', 'mp_stacks_googlefonts' ),
-			'field_container_class' => 'mp_brick_text_option'
+			'field_container_class' => 'mp_brick_text_option',
+			'field_repeater' => 'mp_stacks_text_content_type_repeater'
 		);
 		
 		//Globalize the and populate the mp_stacks_googlefonts_items_array (do this before filter hooks are run)
@@ -127,7 +128,7 @@ function mp_stacks_text2_google_font_metabox_items($items_array) {
 	foreach ( $items_array as $item ){
 		
 		//If the current loop is for the brick_bg_image
-		if ($item['field_id'] == 'brick_line_2_font_size'){
+		if ($item['field_id'] == 'brick_line_2_line_height'){
 			
 			//Split the array after the array with the field containing 'brick_bg_image'
 			$options_prior = array_slice($items_array, 0, $counter+1, true);
@@ -149,12 +150,13 @@ function mp_stacks_text2_google_font_metabox_items($items_array) {
 		
 		$google_font_option_for_line_2 = array(
 			'field_id'			=> 'brick_line_2_google_font',
-			'field_title' 	=> __( 'Google Font Name<br />', 'mp_stacks'),
+			'field_title' 	=> __( 'Google Font Name', 'mp_stacks'),
 			'field_description' 	=> 'Enter the name of the Google Font to use for this Text <br /><a class="button" href="https://www.google.com/fonts" target="_blank">Browse Google Fonts<div style="margin-top: 3.3px; margin-left: 5px;" class="dashicons dashicons-share-alt2"></div></a>',
 			'field_type' 	=> 'textbox',
 			'field_value' => '',
 			'field_placeholder' => __( 'Google Font Name', 'mp_stacks_googlefonts' ),
-			'field_container_class' => 'mp_brick_text_option'
+			'field_container_class' => 'mp_brick_text_option',
+			'field_repeater' => 'mp_stacks_text_content_type_repeater'
 		);
 			
 		//Globalize the and populate the mp_stacks_googlefonts_items_array (do this before filter hooks are run)
@@ -209,7 +211,7 @@ function mp_stacks_second_text1_google_font_metabox_items($items_array) {
 		
 		$google_font_option_for_second_line_1 = array(
 			'field_id'			=> 'brick_second_line_1_google_font',
-			'field_title' 	=> __( 'Google Font Name<br />', 'mp_stacks'),
+			'field_title' 	=> __( 'Google Font Name', 'mp_stacks'),
 			'field_description' 	=> 'Enter the name of the Google Font to use for this Text <br /><a class="button" href="https://www.google.com/fonts" target="_blank">Browse Google Fonts<div  style="margin-top: 3.3px; margin-left: 5px;" class="dashicons dashicons-share-alt2"></div></a>',
 			'field_type' 	=> 'textbox',
 			'field_value' => '',
@@ -269,7 +271,7 @@ function mp_stacks_second_text2_google_font_metabox_items($items_array) {
 	
 		$google_font_option_for_second_line_2 = array(
 				'field_id'			=> 'brick_second_line_2_google_font',
-				'field_title' 	=> __( 'Google Font Name<br />', 'mp_stacks'),
+				'field_title' 	=> __( 'Google Font Name', 'mp_stacks'),
 				'field_description' 	=> 'Enter the name of the Google Font to use for this Text <br /><a class="button" href="https://www.google.com/fonts" target="_blank">Browse Google Fonts<div style="margin-top: 3.3px; margin-left: 5px;" class="dashicons dashicons-share-alt2"></div></a>',
 				'field_type' 	=> 'textbox',
 				'field_value' => '',
