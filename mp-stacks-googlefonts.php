@@ -3,7 +3,7 @@
 Plugin Name: MP Stacks + GoogleFonts
 Plugin URI: http://mintplugins.com
 Description: Use any of over 500 Google Fonts for the "Text" Content-Type
-Version: 1.0.0.3
+Version: 1.0.0.4
 Author: Mint Plugins
 Author URI: http://mintplugins.com
 Text Domain: mp_stacks_googlefonts
@@ -34,7 +34,7 @@ License: GPL2
 */
 // Plugin version
 if( !defined( 'MP_STACKS_GOOGLEFONTS_VERSION' ) )
-	define( 'MP_STACKS_GOOGLEFONTS_VERSION', '1.0.0.2' );
+	define( 'MP_STACKS_GOOGLEFONTS_VERSION', '1.0.0.4' );
 
 // Plugin Folder URL
 if( !defined( 'MP_STACKS_GOOGLEFONTS_PLUGIN_URL' ) )
@@ -150,10 +150,14 @@ function mp_stacks_googlefonts_include_files(){
 		require( MP_STACKS_GOOGLEFONTS_PLUGIN_DIR . 'includes/metaboxes/mp-stacks-googlefonts/mp-stacks-googlefonts.php' );
 		
 		/**
-		 * Functions which assist with the creation of templates using this add-on
+		 * Add this add on to the list of Active MP Stacks Add Ons
 		 */
 		if ( function_exists('mp_stacks_developer_textdomain') ){
-			require( MP_STACKS_GOOGLEFONTS_PLUGIN_DIR . 'includes/misc-functions/stack-template-functions.php' );
+			function mp_stacks_googlefonts_add_active( $required_add_ons ){
+				$required_add_ons['mp_stacks_googlefonts'] = 'MP Stacks + GoogleFonts';
+				return $required_add_ons;
+			}
+			add_filter( 'mp_stacks_active_add_ons', 'mp_stacks_googlefonts_add_active' );
 		}
 		
 		/**

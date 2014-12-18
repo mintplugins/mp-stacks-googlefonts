@@ -3,8 +3,8 @@ Contributors: johnstonphilip
 Donate link: http://mintplugins.com/
 Tags: message bar, header
 Requires at least: 3.6
-Tested up to: 3.8.1
-Stable tag: 1.0.0.3
+Tested up to: 4.1
+Stable tag: 1.0.0.4
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -32,6 +32,11 @@ See full instructions at http://mintplugins.com/doc/mp-stacks
 
 
 == Changelog ==
+
+= 1.0.0.4 = December 18, 2014
+* Added support for new single text repeaters in mp_stacks 1.0.1.4
+* Also added support for new second_text add-on which is also repeatable
+* Added HTML Changelog
 
 = 1.0.0.3 = October 7, 2014
 * Added Admin Styles to keep styles in line with updated ones in MP Stacks 1.0.1.2
