@@ -3,7 +3,7 @@
 Plugin Name: MP Stacks + GoogleFonts
 Plugin URI: http://mintplugins.com
 Description: Use any of over 500 Google Fonts for the "Text" Content-Type
-Version: 1.0.0.4
+Version: 1.0.0.5
 Author: Mint Plugins
 Author URI: http://mintplugins.com
 Text Domain: mp_stacks_googlefonts
@@ -34,7 +34,7 @@ License: GPL2
 */
 // Plugin version
 if( !defined( 'MP_STACKS_GOOGLEFONTS_VERSION' ) )
-	define( 'MP_STACKS_GOOGLEFONTS_VERSION', '1.0.0.4' );
+	define( 'MP_STACKS_GOOGLEFONTS_VERSION', '1.0.0.5' );
 
 // Plugin Folder URL
 if( !defined( 'MP_STACKS_GOOGLEFONTS_PLUGIN_URL' ) )

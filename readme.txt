@@ -4,7 +4,7 @@ Donate link: http://mintplugins.com/
 Tags: message bar, header
 Requires at least: 3.6
 Tested up to: 4.1
-Stable tag: 1.0.0.4
+Stable tag: 1.0.0.5
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -32,6 +32,9 @@ See full instructions at http://mintplugins.com/doc/mp-stacks
 
 
 == Changelog ==
+
+= 1.0.0.5 = February 1, 2014
+* Apply Second Text Google Fonts ONLY to the 2nd text (was applying to built-in texts).
 
 = 1.0.0.4 = December 18, 2014
 * Added support for new single text repeaters in mp_stacks 1.0.1.4
