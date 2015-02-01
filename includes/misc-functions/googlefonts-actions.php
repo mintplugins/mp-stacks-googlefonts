@@ -167,7 +167,7 @@ function mp_stacks_apply_googlefonts_to_text_content_types( $css_output, $post_i
 			if ( !empty( $text_google_font_name ) ){
 				
 				//Return the incoming css string plus css to apply this font family to all paragraph tags
-				$return_css .=  '#mp-brick-' . $post_id . ' .mp-stacks-text-area-' . $counter . ' .mp-brick-text  * { font-family: \'' . $text_google_font_name . '\';}';
+				$return_css .=  '#mp-brick-' . $post_id . ' .mp-stacks-second-text-area.mp-stacks-text-area-' . $counter . ' .mp-brick-text  * { font-family: \'' . $text_google_font_name . '\';}';
 								
 			}
 				
