@@ -3,8 +3,8 @@ Contributors: johnstonphilip
 Donate link: http://mintplugins.com/
 Tags: message bar, header
 Requires at least: 3.6
-Tested up to: 4.1
-Stable tag: 1.0.0.5
+Tested up to: 4.3
+Stable tag: 1.0.0.6
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -33,7 +33,13 @@ See full instructions at http://mintplugins.com/doc/mp-stacks
 
 == Changelog ==
 
-= 1.0.0.5 = February 1, 2014
+= 1.0.0.6 = September 19, 2015
+* Google fonts can now have font-weight chosen from dropdown by the user.
+* Admin Meta Scripts now enqueued only when needed.
+* Removed old stack template functions file
+* Brick Metabox controls now load using ajax.
+
+= 1.0.0.5 = February 1, 2015
 * Apply Second Text Google Fonts ONLY to the 2nd text (was applying to built-in texts).
 
 = 1.0.0.4 = December 18, 2014
