@@ -1,8 +1,3 @@
-.mp_stacks_text_content_type_repeater_repeater div[class*="google_fontBBBBB"] input.mp_repeater{
-	width:100%;
-}
-
-.mp_stacks_second_singletext_content_type_repeater_repeater div[class*="brick_second_textBBBBB"],
-.mp_stacks_second_singletext_content_type_repeater_repeater div[class*="brick_second_textBBBBB "]{
-	clear:both;	
+div[class*="brick_text_google_font_showhider"]{
+	border:none!important;
 }

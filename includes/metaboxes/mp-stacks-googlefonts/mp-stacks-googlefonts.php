@@ -13,7 +13,8 @@ function mp_stacks_overall_google_fonts_metabox(){
 		'metabox_title' => __( 'Brick\'s Google Font', 'mp_stacks'), 
 		'metabox_posttype' => 'mp_brick', 
 		'metabox_context' => 'side', 
-		'metabox_priority' => 'default' 
+		'metabox_priority' => 'low' ,
+		'metabox_load_content_when_opened' => true
 	);
 	
 	/**
@@ -21,13 +22,30 @@ function mp_stacks_overall_google_fonts_metabox(){
 	 *
 	 */
 	$mp_stacks_googlefonts_items_array = array(
-		array(
+		'brick_overall_google_font' => array(
 			'field_id'			=> 'brick_overall_google_font',
 			'field_title' 	=> __( 'Google Font Name', 'mp_stacks'),
 			'field_description' 	=> 'Enter the name of the Google Font to use for this Text <br /><a class="button" href="https://www.google.com/fonts" target="_blank">Browse Google Fonts<div  style="margin-top: 3.3px; margin-left: 5px;" class="dashicons dashicons-share-alt2"></div></a>',
 			'field_type' 	=> 'textbox',
 			'field_value' => '',
 			'field_placeholder' => __( 'Google Font Name', 'mp_stacks_googlefonts' ),
+		),
+		'brick_overall_google_font_weight_style' => array(
+			'field_id'			=> 'brick_overall_google_font_weight_style',
+			'field_title' 	=> __( 'Font Weight/Style', 'mp_stacks'),
+			'field_description' 	=> 'Set the weight of this font (If available for your chosen font)',
+			'field_type' 	=> 'select',
+			'field_select_values' => array( 
+				'100' => 'Thin', 
+				'200' => 'Extra-Light', 
+				'300' => 'Light', 
+				'400' => 'Normal', 
+				'500' => 'Medium', 
+				'600' => 'Semi-Bold', 
+				'700' => 'Bold',
+				'900' => 'Ultra-Bold', 
+			),
+			'field_value' => '',
 		)
 	);
 	
@@ -48,7 +66,8 @@ function mp_stacks_overall_google_fonts_metabox(){
 	global $mp_stacks_meta_box;
 	$mp_stacks_meta_box = new MP_CORE_Metabox($mp_stacks_googlefonts_add_meta_box, $mp_stacks_googlefonts_items_array);
 }
-add_action('mp_brick_metabox', 'mp_stacks_overall_google_fonts_metabox');
+add_action('mp_brick_ajax_metabox', 'mp_stacks_overall_google_fonts_metabox');
+add_action('wp_ajax_mp_brick_overall_google_fonts_metabox', 'mp_stacks_overall_google_fonts_metabox');
 
 /**
  * Add to the Array which stores all info about the new metabox
@@ -57,19 +76,48 @@ add_action('mp_brick_metabox', 'mp_stacks_overall_google_fonts_metabox');
 function mp_stacks_singletext_google_font_metabox_items($items_array) {
 	
 	$new_fields = array(
+		'brick_text_google_font_showhider' => array(
+			'field_id'			=> 'brick_text_google_font_showhider',
+			'field_title' 	=> __( 'Google Font', 'mp_stacks'),
+			'field_description' 	=> '',
+			'field_type' 	=> 'showhider',
+			//'field_container_class' => 'mp_brick_text_option',
+			'field_repeater' => 'mp_stacks_singletext_content_type_repeater'
+		),
 		'brick_text_google_font' => array(
 			'field_id'			=> 'brick_text_google_font',
 			'field_title' 	=> __( 'Google Font Name', 'mp_stacks'),
-			'field_description' 	=> 'Enter the name of the Google Font to use for this Text <br /><a class="button" href="https://www.google.com/fonts" target="_blank">Browse Google Fonts<div  style="margin-top: 3.3px; margin-left: 5px;" class="dashicons dashicons-share-alt2"></div></a>',
+			'field_description' 	=> 'Enter the name of the Google Font to use for this Text. <a class="button" href="https://www.google.com/fonts" target="_blank">Browse Google Fonts<div  style="margin-top: 3.3px; margin-left: 5px;" class="dashicons dashicons-share-alt2"></div></a> ',
 			'field_type' 	=> 'textbox',
 			'field_value' => '',
+			'field_showhider' => 'brick_text_google_font_showhider',
+			'field_showhider_repeats' => true,
 			'field_placeholder' => __( 'Google Font Name', 'mp_stacks_googlefonts' ),
-			'field_container_class' => 'mp_brick_text_option',
+			'field_repeater' => 'mp_stacks_singletext_content_type_repeater'
+		),
+		'brick_text_google_font_weight_style' => array(
+			'field_id'			=> 'brick_text_google_font_weight_style',
+			'field_title' 	=> __( 'Font Weight/Style', 'mp_stacks'),
+			'field_description' 	=> 'Set the weight of this font (If available for your chosen font)',
+			'field_type' 	=> 'select',
+			'field_select_values' => array( 
+				'100' => 'Thin', 
+				'200' => 'Extra-Light', 
+				'300' => 'Light', 
+				'400' => 'Normal', 
+				'500' => 'Medium', 
+				'600' => 'Semi-Bold', 
+				'700' => 'Bold',
+				'900' => 'Ultra-Bold', 
+			),
+			'field_value' => '',
+			'field_showhider' => 'brick_text_google_font_showhider',
+			'field_showhider_repeats' => true,
 			'field_repeater' => 'mp_stacks_singletext_content_type_repeater'
 		)
 	);
 		
-    return mp_core_insert_meta_fields( $items_array, $new_fields, 'brick_text_line_height' );
+    return mp_core_insert_meta_fields( $items_array, $new_fields, 'brick_text_screen_size_controller' );
 }
 add_filter('mp_stacks_singletext_items_array','mp_stacks_singletext_google_font_metabox_items');
 
@@ -80,19 +128,52 @@ add_filter('mp_stacks_singletext_items_array','mp_stacks_singletext_google_font_
 function mp_stacks_secondtext_google_font_metabox_items($items_array) {
 			
 	$new_fields = array(
+		'brick_second_text_google_font_showhider' => array(
+			'field_id'			=> 'brick_second_text_google_font_showhider',
+			'field_title' 	=> __( 'Google Font', 'mp_stacks'),
+			'field_description' 	=> '',
+			'field_type' 	=> 'showhider',
+			//'field_container_class' => 'mp_brick_second_text_option',
+			'field_repeater' => 'mp_stacks_second_singletext_content_type_repeater'
+		),
 		'brick_second_text_google_font' => array(
 			'field_id'			=> 'brick_second_text_google_font',
 			'field_title' 	=> __( 'Google Font Name', 'mp_stacks'),
-			'field_description' 	=> 'Enter the name of the Google Font to use for this Text <br /><a class="button" href="https://www.google.com/fonts" target="_blank">Browse Google Fonts<div  style="margin-top: 3.3px; margin-left: 5px;" class="dashicons dashicons-share-alt2"></div></a>',
+			'field_description' 	=> 'Enter the name of the Google Font to use for this Text. <a class="button" href="https://www.google.com/fonts" target="_blank">Browse Google Fonts<div  style="margin-top: 3.3px; margin-left: 5px;" class="dashicons dashicons-share-alt2"></div></a> ',
 			'field_type' 	=> 'textbox',
 			'field_value' => '',
+			'field_showhider' => 'brick_second_text_google_font_showhider',
+			'field_showhider_repeats' => true,
 			'field_placeholder' => __( 'Google Font Name', 'mp_stacks_googlefonts' ),
-			'field_container_class' => 'mp_brick_text_option',
+			'field_repeater' => 'mp_stacks_second_singletext_content_type_repeater'
+		),
+		'brick_second_text_google_font_weight_style' => array(
+			'field_id'			=> 'brick_second_text_google_font_weight_style',
+			'field_title' 	=> __( 'Font Weight/Style', 'mp_stacks'),
+			'field_description' 	=> 'Set the weight of this font (If available for your chosen font)',
+			'field_type' 	=> 'select',
+			'field_select_values' => array( 
+				'100' => 'Thin', 
+				//'100italic' => 'Thin Italic', 
+				'200' => 'Extra-Light', 
+				//'200italic' => 'Extra-Light Italic', 
+				'300' => 'Light', 
+				//'300italic' => 'Light Italic', 
+				'400' => 'Normal', 
+				//'400italic' => 'Normal Italic', 
+				'700' => 'Bold',
+				//'700italic' => 'Bold Italic', 
+				'900' => 'Ultra-Bold', 
+				//'900italic' => 'Ultra-Bold Italic', 
+			),
+			'field_value' => '',
+			'field_showhider' => 'brick_second_text_google_font_showhider',
+			'field_showhider_repeats' => true,
 			'field_repeater' => 'mp_stacks_second_singletext_content_type_repeater'
 		)
 	);
 	
-	return mp_core_insert_meta_fields( $items_array, $new_fields, 'brick_second_text_line_height' );
+	return mp_core_insert_meta_fields( $items_array, $new_fields, 'brick_second_text_screen_size_controller' );
 		
 }
 add_filter('mp_stacks_second_text_items_array','mp_stacks_secondtext_google_font_metabox_items');
